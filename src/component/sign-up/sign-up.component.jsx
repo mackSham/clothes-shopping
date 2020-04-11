@@ -1,7 +1,7 @@
 import React from "react";
 
 import FormInput from "./../form-input/form-input.component";
-import CustomButtom from "./../custom-button/custom-button.component";
+import CustomButton from "./../custom-button/custom-button.component";
 import { auth, createUserProfileDocument } from "../../firebase/firebase-utils";
 
 import "./sign-up.styles.scss";
@@ -12,11 +12,11 @@ class SignUp extends React.Component {
       displayName: "",
       email: "",
       password: "",
-      confirmPassword: ""
+      confirmPassword: "",
     };
   }
 
-  handleSubmit = async event => {
+  handleSubmit = async (event) => {
     event.preventDefault();
     const { displayName, email, password, confirmPassword } = this.state;
     if (password !== confirmPassword) {
@@ -34,14 +34,14 @@ class SignUp extends React.Component {
         displayName: "",
         email: "",
         password: "",
-        confirmPassword: ""
+        confirmPassword: "",
       });
     } catch (error) {
       console.log("Error in creating account", error);
     }
   };
 
-  handleChange = event => {
+  handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
@@ -84,7 +84,7 @@ class SignUp extends React.Component {
             label="Confirm Password"
             required
           ></FormInput>
-          <CustomButtom type="submit">SIGN UP</CustomButtom>
+          <CustomButton type="submit">SIGN UP</CustomButton>
         </form>
       </div>
     );
